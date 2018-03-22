@@ -35,7 +35,7 @@ void Game::initGame()
 
 void Game::mainMenu()
 {
-	cout << "ENTER to continue..." << "\n";
+	cout << "ENTER to continue..." << endl;
 	cin.get();
 	system("CLS");
 
@@ -44,34 +44,33 @@ void Game::mainMenu()
 		if (this->characters[activeCharacter].getExp() >=
 			this->characters[activeCharacter].getExpNext())
 		{
-			cout << "LEVEL UP AVAILABLE! \n\n";
+			cout << "LEVEL UP AVAILABLE!" << endl;
 		}
 
-		cout << "= MAIN MENU =" << "\n" << "\n";
+		cout << "= MAIN MENU =" << endl;
 
 		cout << "= Active character: " <<
 			this->characters[activeCharacter].getName() << " Nr: " <<
 			this->activeCharacter + 1 << "/" << this->characters.size() <<
-			" =" << "\n" << "\n";
+			" =" << endl;
 
-		cout << "0: Quit" << "\n";
-		cout << "1: Travel" << "\n";
-		cout << "2: Level up" << "\n";
-		cout << "3: Rest" << "\n";
-		cout << "4: Character sheet" << "\n";
-		cout << "5: Create new character" << "\n";
-		cout << "6: Select character" << "\n";
-		cout << "7: Save characters" << "\n";
-		cout << "8: Load characters" << "\n";
+		cout << "0: Quit" << endl;
+		cout << "1: Travel" << endl;
+		cout << "2: Level up" << endl;
+		cout << "3: Rest" << endl;
+		cout << "4: Character sheet" << endl;
+		cout << "5: Create new character" << endl;
+		cout << "6: Select character" << endl;
+		cout << "7: Save characters" << endl;
+		cout << "8: Load characters" << endl;
 
-		cout << "\n";
 
 		cout << "\n" << "Choice: ";
 		cin >> this->choice;
 
 		while (cin.fail() || this->choice > 9)
 		{
-			cout << "Faulty input!" << "\n";
+			cout << "Faulty input!" << endl;
 			cin.clear();
 			cin.ignore(100, '\n');
 
@@ -185,21 +184,21 @@ void Game::levelUpCharacter()
 	{
 		cout << "You have statpoints to allocate!" << "\n\n";
 
-		cout << "Stat to upgrade: " << "\n";
-		cout << "0: Strength " << "\n";
-		cout << "1: Vitality " << "\n";
-		cout << "2: Dexterity " << "\n";
-		cout << "3: Intelligence " << "\n";
+		cout << "Stat to upgrade: " << endl;
+		cout << "0: Strength " << endl;
+		cout << "1: Vitality " << endl;
+		cout << "2: Dexterity " << endl;
+		cout << "3: Intelligence " << endl;
 
 		cin >> this->choice;
 
 		while (cin.fail() || this->choice > 3)
 		{
-			cout << "Faulty input!" << "\n";
+			cout << "Faulty input!" <<endl;
 			cin.clear();
 			cin.ignore(100, '\n');
 
-			cout << "Stat to upgrade: " << "\n";
+			cout << "Stat to upgrade: " << endl;
 			cin >> this->choice;
 		}
 
@@ -236,15 +235,14 @@ void Game::characterMenu()
 	do
 	{
 		system("CLS");
-		cout << "= CHARACTER MENU = " << "\n\n";
+		cout << "= CHARACTER MENU = " << endl;
 
 		characters[activeCharacter].printStats();
 
-		cout << "= MENU =" << "\n";
-		cout << "0: Back" << "\n";
-		cout << "1: Print Inventory" << "\n";
-		cout << "2: Equip Item" << "\n";
-		cout << "\n";
+		cout << "= MENU =" << endl;
+		cout << "0: Back" << endl;
+		cout << "1: Print Inventory" << endl;
+		cout << "2: Equip Item" << endl;
 		cout << "Choice: ";
 
 		cin >> this->choice;
@@ -255,11 +253,10 @@ void Game::characterMenu()
 			cin.clear();
 			cin.ignore(100, '\n');
 
-			cout << "= MENU =" << "\n";
-			cout << "0: Back" << "\n";
-			cout << "1: Print Inventory" << "\n";
-			cout << "2: Equip Item" << "\n";
-			cout << "\n";
+			cout << "= MENU =" << endl;
+			cout << "0: Back" << endl;
+			cout << "1: Print Inventory" << endl;
+			cout << "2: Equip Item" << endl;
 			cout << "Choice: ";
 			cin >> this->choice;
 		}
@@ -499,14 +496,14 @@ void Game::loadCharacters()
 
 void Game::selectCharacter()
 {
-	cout << "Select character: " << "\n\n";
+	cout << "Select character: " << endl;
 
 	for (size_t i = 0; i < this->characters.size(); i++)
 	{
 		cout << "Index: " << i << " = " << this->characters[i].getName() << " Level: " << this->characters[i].getLevel() << "\n";
 	}
 
-	cout << "\n";
+	cout<< endl;
 
 	cout << "Choice: ";
 
@@ -514,20 +511,20 @@ void Game::selectCharacter()
 
 	while (cin.fail() || this->choice >= this->characters.size() || this->choice < 0)
 	{
-		cout << "Faulty input!" << "\n";
+		cout << "Faulty input!" << endl;
 		cin.clear();
 		cin.ignore(100, '\n');
 
-		cout << "Select character: " << "\n";
+		cout << "Select character: " << endl;
 		cin >> this->choice;
 	}
 
 	cin.ignore(100, '\n');
-	cout << "\n";
+	cout << endl;
 
 	this->activeCharacter = this->choice;
 
-	cout << this->characters[this->activeCharacter].getName() << " is SELECTED!" << "\n\n";
+	cout << this->characters[this->activeCharacter].getName() << " is SELECTED!" << endl;
 }
 
 void Game::travel()
@@ -542,32 +539,31 @@ void Game::travel()
 void Game::rest()
 {
 	int restCost = this->characters[this->activeCharacter].getHPMax() - this->characters[this->activeCharacter].getHP();
-	cout << "= REST =" << "\n\n";
-	cout << "Resting costs you: " << restCost << "\n";
+	cout << "= REST =" << endl;
+	cout << "Resting costs you: " << restCost << endl;
 	cout << "Your gold: " << this->characters[this->activeCharacter].getGold() << "\n";
 	cout << "HP: " << this->characters[this->activeCharacter].getHP() << " / " << this->characters[this->activeCharacter].getHPMax() << "\n\n";
 
 	if (this->characters[this->activeCharacter].getGold() < restCost)
 	{
-		cout << "NOT ENOUGH MONEY, SORRY BUDDY!" << "\n\n";
+		cout << "NOT ENOUGH MONEY, SORRY BUDDY!" << endl;
 	}
 	else if (this->characters[this->activeCharacter].getHP() >= this->characters[this->activeCharacter].getHPMax())
 	{
-		cout << "ALREADY AT FULL HEALTH BUDDY!" << "\n\n";
-	}
+		cout << "ALREADY AT FULL HEALTH BUDDY!" << endl;
 	else
 	{
-		cout << "\n\n Rest? (0) Yes, (1) No..." << "\n\n";
+		cout << "\n\n Rest? (0) Yes, (1) No..." << endl;
 
 		cin >> this->choice;
 
 		while (cin.fail() || this->choice < 0 || this->choice > 1)
 		{
-			cout << "Faulty input!" << "\n";
+			cout << "Faulty input!" << endl;
 			cin.clear();
 			cin.ignore(100, '\n');
 
-			cout << "\n\n Rest? (0) Yes, (1) No..." << "\n\n";
+			cout << "\n\n Rest? (0) Yes, (1) No..." << endl;
 			cin >> this->choice;
 		}
 
@@ -578,11 +574,11 @@ void Game::rest()
 		{
 			this->characters[this->activeCharacter].resetHP();
 			this->characters[this->activeCharacter].payGold(restCost);
-			cout << "RESTED!" << "\n\n";
+			cout << "RESTED!" << endl;
 		}
 		else
 		{
-			cout << "MAYBE NEXT TIME!" << "\n\n";
+			cout << "MAYBE NEXT TIME!" << endl;
 		}
 	}
 }
